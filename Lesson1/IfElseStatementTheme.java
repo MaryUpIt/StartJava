@@ -1,3 +1,4 @@
+
 public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println(" 1.Перевод псевдокода на язык Java");
@@ -8,16 +9,15 @@ public class IfElseStatementTheme {
         if (age > 20) {
             System.out.println("Age over 20 years");
         } else {
-            System.out.println ("Age less then 20 years");
+            System.out.println("Age less then 20 years");
         }
         if(!male) {
             System.out.println("female");
         } else {
             System.out.println("male");
         }
-
         if (height < 1.80) {
-            System.out.println ("Height less them 1.80 m");
+            System.out.println("Height less them 1.80 m");
         } else {
             System.out.println("Height over 1.80 m");
         }
@@ -33,11 +33,11 @@ public class IfElseStatementTheme {
         System.out.println("\n 2.Поиск max и min числа.");
         int num1 = 45;
         int num2 = 32;
-        if (num1 == num2){
+        if (num1 == num2) {
             System.out.println(num1 + " equals "+ num2);
         } else {
-            if (num1 > num2){
-                System.out.println( num1 +" is max " + num2 + " is min");
+            if (num1 > num2) {
+                System.out.println(num1 +" is max " + num2 + " is min");
             } else {
                 System.out.println(num2 +" is max " + num1 + " is min");
             }
@@ -45,13 +45,13 @@ public class IfElseStatementTheme {
 
         System.out.println("\n 3.Работа с числом.");
         num1 = 23;
-        if (num1 != 0){
-             if (num1 < 0){
+        if (num1 != 0) {
+             if (num1 < 0) {
                 System.out.print(num1 + " is negative ");
             } else {
                 System.out.print(num1 + " is positive ");
             }
-            if (num1 % 2 == 0){
+            if (num1 % 2 == 0) {
                 System.out.println("and even-number.");
             } else {
                 System.out.println("and not enen-number.");
@@ -68,16 +68,16 @@ public class IfElseStatementTheme {
             System.out.println("Numbers " + num1 + " & " + num2 +" hasn't same digits");
         } else {
             System.out.print("Numbers " + num1 + " & " + num2 +" has: ");
-            if (num1 / 100 == num2 / 100) {
-            System.out.print(num1 / 100 + " at first digit ");
+        if (num1 / 100 == num2 / 100) {
+            System.out.print(num1 / 100 + " at first digit " );
         } 
-        if (num1 % 100 / 10 == num2 % 100 / 10) {
+        if (num1 % 100 / 10 == num2%100 / 10) {
             System.out.print(num1 % 100 / 10 + " at second digit ");
         }
         if (num1 % 10 == num2 % 10) {
             System.out.print(num1 % 10 + " at third digit");
         } 
-        }
+    }
 
         System.out.println("\n 5.Определение буквы, числа или символа по их коду.");
         char symbol = '\u0057';
@@ -103,7 +103,7 @@ public class IfElseStatementTheme {
             commision = 7;
         }
         System.out.println("Сумма вклада: " + deposit);
-        System.out.println("Процент по вкладу: " + (deposit * commision / 100));
+        System.out.println("Процент по вкладу: " + commision);
         System.out.println("Итоговая сумма долга за год: " + (deposit + deposit * commision / 100));
 
         System.out.println("\n 7. Определение оценки по предметам.");
@@ -111,7 +111,7 @@ public class IfElseStatementTheme {
         int percentProgram = 91;
         int scoreHistory;
         int scoreProgram;
-        if (percentHistory > 91) {
+        if (percentHistory > 91 ) {
             scoreHistory = 5;
             System.out.println(scoreHistory + " : History.");
         } else if (percentHistory > 73) {
@@ -124,7 +124,7 @@ public class IfElseStatementTheme {
             scoreHistory = 2;
             System.out.println(scoreHistory + " : History.");
         }
-        if (percentProgram > 91 ) {
+        if (percentProgram > 91) {
             scoreProgram = 5;
             System.out.println(scoreProgram + " : Programming.");
         } else if (percentProgram > 73) {
@@ -145,7 +145,7 @@ public class IfElseStatementTheme {
         int profitAtMonth = 13000;
         int purchase = 9000;
         int annualProfit = 12 * (profitAtMonth - rentAtMonth - purchase);
-        if (annualProfit > 0){
+        if (annualProfit > 0) {
             System.out.println("Прибыль за год: +" + annualProfit + " руб.");
         } else {
             System.out.println("Прибыль за год: " + annualProfit + " руб.");
@@ -153,7 +153,7 @@ public class IfElseStatementTheme {
         System.out.println("\n 9.Подсчет количества банкнот.");
         int usd = 567;
         int usd100 = usd / 100;
-        int usd10 = usd % 100 /10;
+        int usd10 = usd % 100 / 10;
         int usd1 = usd % 10;
         if (usd10 > 5) {
             usd1 = usd1 + (usd10 - 5) * 10;
