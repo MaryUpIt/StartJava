@@ -111,7 +111,7 @@ public class IfElseStatementTheme {
         int percentProgram = 91;
         int scoreHistory;
         int scoreProgram;
-        if (percentHistory > 91 ) {
+        if (percentHistory > 91) {
             scoreHistory = 5;
             System.out.println(scoreHistory + " : History.");
         } else if (percentHistory > 73) {
