@@ -69,9 +69,9 @@ public class IfElseStatementTheme {
         } else {
             System.out.print("Numbers " + num1 + " & " + num2 +" has: ");
         if (num1 / 100 == num2 / 100) {
-            System.out.print(num1 / 100 + " at first digit " );
+            System.out.print(num1 / 100 + " at first digit ");
         } 
-        if (num1 % 100 / 10 == num2%100 / 10) {
+        if (num1 % 100 / 10 == num2 % 100 / 10) {
             System.out.print(num1 % 100 / 10 + " at second digit ");
         }
         if (num1 % 10 == num2 % 10) {
@@ -103,7 +103,7 @@ public class IfElseStatementTheme {
             commision = 7;
         }
         System.out.println("Сумма вклада: " + deposit);
-        System.out.println("Процент по вкладу: " + commision);
+        System.out.println("Процент по вкладу: " + deposit * commision / 100);
         System.out.println("Итоговая сумма долга за год: " + (deposit + deposit * commision / 100));
 
         System.out.println("\n 7. Определение оценки по предметам.");
@@ -158,7 +158,6 @@ public class IfElseStatementTheme {
         if (usd10 > 5) {
             usd1 = usd1 + (usd10 - 5) * 10;
             usd10 = 5;
-            
         }
         System.out.println("номиналы банкнот: 1$, 10$, 100$");
         System.out.println("требуемое количество банкнот: " + usd100 + " шт. по 100$, " + 
