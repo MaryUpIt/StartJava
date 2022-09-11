@@ -7,8 +7,8 @@ public class MyFirstGame {
                 while (gamer > random ) {
                     System.out.printf("Число %d больше того, что загадал компьютер\n", gamer);
                     gamer -= 10;
-                    if (gamer == 0){
-                        while(gamer != random){
+                    if (gamer == 0) {
+                        while(gamer != random) {
                             gamer++;
                             System.out.printf("Число %d меньше того, что загадал компьютер\n", gamer);
                         }
