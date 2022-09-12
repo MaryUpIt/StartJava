@@ -80,7 +80,6 @@ public class IfElseStatementTheme {
 
         System.out.println("\n 5.Определение буквы, числа или символа по их коду.");
         char unknownChar = '\u0057';
-        System.out.println(unknownChar);
         if (unknownChar >= 48 && unknownChar <= 57) {
             System.out.println(unknownChar + " is number.");
         } else if (unknownChar >= 65 && unknownChar <= 90) {
