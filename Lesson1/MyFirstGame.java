@@ -1,34 +1,28 @@
 public class MyFirstGame {
     public static void main(String[] args) {
-        int random = 9;
-        int gamer = 50;
+        int random = 3;
+        int min = 1;
+        int max = 100;
+        int gamer = max / 2;
         while (gamer != random) {
             if (gamer > random) {
-                while (gamer > random ) {
-                    System.out.printf("Число %d больше того, что загадал компьютер\n", gamer);
+                System.out.printf("Число %d больше того, что загадал компьютер\n", gamer);
+                max = gamer;
+                if ((max - min) > 10) {
                     gamer -= 10;
-                    if (gamer == 0) {
-                        while(gamer != random) {
-                            gamer++;
-                            System.out.printf("Число %d меньше того, что загадал компьютер\n", gamer);
-                        }
-                    }
-                }
-                while (gamer < random ) {
-                    System.out.printf("Число %d меньше того, что загадал компьютер\n", gamer);
-                    gamer++;
-                }
-            } else {
-                while (gamer < random) {
-                    System.out.printf("Число %d меньше того, что загадал компьютер\n", gamer);
-                    gamer += 10;
-                }
-                while (gamer < random) {
-                    System.out.printf("Число %d больше того, что загадал компьютер\n", gamer);
+                } else {
                     gamer--;
                 }
+            } else {
+                System.out.printf("Число %d меньше того, что загадал компьютер\n", gamer);
+                min = gamer;
+                if ((max - min) > 10) {
+                    gamer += 10;
+                } else {
+                    gamer++;
+                }
             }
-        } 
+        }
         System.out.printf("Вы победили! число %d\n", gamer);
     }
 }
