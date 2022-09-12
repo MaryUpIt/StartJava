@@ -1,4 +1,3 @@
-
 public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println(" 1.Перевод псевдокода на язык Java");
@@ -63,8 +62,8 @@ public class IfElseStatementTheme {
         System.out.println("\n 4.Поиск одинаковых цифр в числах.");
         num1 = 468;
         num2 = 568;
-        if (num1 / 100 != num2 / 100 && num1 % 100 / 10 != num2 % 100 / 10
-         && num1 % 10 != num2 % 10) {
+        if (num1 / 100 != num2 / 100 && num1 % 10 != num2 % 10 
+            && num1 % 100 / 10 != num2 % 100 / 10) {
             System.out.println("Numbers " + num1 + " & " + num2 +" hasn't same digits");
         } else {
             System.out.print("Numbers " + num1 + " & " + num2 +" has: ");
@@ -77,19 +76,19 @@ public class IfElseStatementTheme {
         if (num1 % 10 == num2 % 10) {
             System.out.print(num1 % 10 + " at third digit");
         } 
-    }
+        }
 
         System.out.println("\n 5.Определение буквы, числа или символа по их коду.");
-        char symbol = '\u0057';
-        System.out.println(symbol);
-        if (symbol >= 48 && symbol <= 57) {
-            System.out.println(symbol + " is number.");
-        } else if (symbol >= 65 && symbol <= 90) {
-            System.out.println(symbol + " is a capital letter.");
-        } else if (symbol >= 97 && symbol <= 122) {
-            System.out.println(symbol + " is a letter.");
+        char unknownChar = '\u0057';
+        System.out.println(unknownChar);
+        if (unknownChar >= 48 && unknownChar <= 57) {
+            System.out.println(unknownChar + " is number.");
+        } else if (unknownChar >= 65 && unknownChar <= 90) {
+            System.out.println(unknownChar + " is a capital letter.");
+        } else if (unknownChar >= 97 && unknownChar <= 122) {
+            System.out.println(unknownChar + " is a letter.");
         } else {
-            System.out.println(symbol + "isn't a number or letter.");
+            System.out.println(unknownChar + "isn't a number or letter.");
         }
 
         System.out.println("\n 6.Определение суммы вклада и начисленных банком %.");
@@ -103,7 +102,7 @@ public class IfElseStatementTheme {
             commision = 7;
         }
         System.out.println("Сумма вклада: " + deposit);
-        System.out.println("Процент по вкладу: " + deposit * commision / 100);
+        System.out.println("Начислено процентов: " + deposit * commision / 100);
         System.out.println("Итоговая сумма долга за год: " + (deposit + deposit * commision / 100));
 
         System.out.println("\n 7. Определение оценки по предметам.");
@@ -165,4 +164,4 @@ public class IfElseStatementTheme {
         System.out.println("посчитанная исходная сумма: " + 
             (usd100 * 100 + usd10 * 10 + usd1));
     }
-    }
+}
