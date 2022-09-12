@@ -2,9 +2,9 @@ public class Calculator {
     public static void main(String[] args) {
         int a = 2;
         char sign = '^';
-        int b = 5;
+        int b = 8;
         int result = 0;
-        if (sign =='+') {
+        if (sign == '+') {
             result = a + b;
         } else if (sign == '-') {
             result = a - b;
@@ -37,7 +37,5 @@ public class Calculator {
             System.out.println("Error");
         }
         System.out.println(a + "" + sign + "" + b + "=" + result);
-
-        
     }
 }
