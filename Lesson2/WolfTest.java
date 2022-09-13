@@ -6,7 +6,7 @@ public class WolfTest {
         wolf.age = 2;
         wolf.weight = 47.5;
         wolf.color = "серый";
-        if (!wolf.isMale){
+        if (!wolf.isMale) {
             System.out.println(wolf.name + " " + wolf.color + " самка");
         } else {
             System.out.println(wolf.name + " " + wolf.color + " самец");
