@@ -14,27 +14,23 @@ public class Calculator {
             if (b != 0){
                 result = a / b;
             } else {
-            System.out.println("Error");
+        System.out.println("Делить на ноль нельзя!");
             }
         } else if (sign == '%') {
             if (b != 0) {
                 result = a % b;
             } else {
-            System.out.println("Error");
+        System.out.println("Делить на ноль нельзя!");
             }
         } else if (sign == '^') {
-            if (b != 0) {
-                result = a;;
-                int tmp = b;
-                while (tmp > 1) {
-                    result = result * a;
-                    tmp--;
-                }
-            } else {
-                result = 1;
+            result = 1;
+            int tmp = b;
+            while (tmp > 1) {
+                result *= a;
+                tmp--;
             }
         } else {
-            System.out.println("Error");
+            System.out.println("Неверный знак операции!");
         }
         System.out.println(a + "" + sign + "" + b + "=" + result);
     }
