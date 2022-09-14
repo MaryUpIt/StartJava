@@ -62,20 +62,26 @@ public class IfElseStatementTheme {
         System.out.println("\n 4.Поиск одинаковых цифр в числах.");
         num1 = 468;
         num2 = 568;
-        if (num1 / 100 != num2 / 100 && num1 % 10 != num2 % 10 
-            && num1 % 100 / 10 != num2 % 100 / 10) {
+        int firstDigitNum1 = num1 % 10;
+        int firstDigitNum2 = num2 % 10;
+        int secondDigitNum1 = num1 % 100 / 10;
+        int secondDigitNum2 = num2 % 100 / 10;
+        int thirdDigitNum1 = num1 / 100;
+        int thirdDigitNum2 = num2 / 100;
+        if (firstDigitNum2 != firstDigitNum2 && secondDigitNum1 != secondDigitNum2
+                && thirdDigitNum1 != thirdDigitNum2) {
             System.out.println("Numbers " + num1 + " & " + num2 +" hasn't same digits");
         } else {
             System.out.print("Numbers " + num1 + " & " + num2 +" has: ");
-        if (num1 / 100 == num2 / 100) {
-            System.out.print(num1 / 100 + " at first digit ");
-        } 
-        if (num1 % 100 / 10 == num2 % 100 / 10) {
-            System.out.print(num1 % 100 / 10 + " at second digit ");
-        }
-        if (num1 % 10 == num2 % 10) {
-            System.out.print(num1 % 10 + " at third digit");
-        } 
+            if (firstDigitNum1 == firstDigitNum2) {
+                System.out.print(firstDigitNum1 + " at first digit ");
+            }
+            if (secondDigitNum1 == secondDigitNum2) {
+                System.out.print(secondDigitNum1 + " at second digit ");
+            }
+            if (thirdDigitNum1 == thirdDigitNum2) {
+                System.out.print(thirdDigitNum1 + " at third digit");
+            }
         }
 
         System.out.println("\n 5.Определение буквы, числа или символа по их коду.");
