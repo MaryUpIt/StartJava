@@ -1,28 +1,28 @@
 public class MyFirstGame {
     public static void main(String[] args) {
-        int random = 3;
-        int min = 1;
-        int max = 100;
-        int gamer = max / 2;
-        while (gamer != random) {
-            if (gamer > random) {
-                System.out.printf("Число %d больше того, что загадал компьютер\n", gamer);
-                max = gamer;
-                if ((max - min) > 10) {
-                    gamer -= 10;
+        int secretNum = 3;
+        int startRange = 1;
+        int endRange = 100;
+        int playerNum = endRange / 2;
+        while (playerNum != secretNum) {
+            if (playerNum > secretNum) {
+                System.out.printf("Число %d больше того, что загадал компьютер\n", playerNum);
+                endRange = playerNum;
+                if ((endRange - startRange) > 10) {
+                    playerNum -= 10;
                 } else {
-                    gamer--;
+                    playerNum--;
                 }
             } else {
-                System.out.printf("Число %d меньше того, что загадал компьютер\n", gamer);
-                min = gamer;
-                if ((max - min) > 10) {
-                    gamer += 10;
+                System.out.printf("Число %d меньше того, что загадал компьютер\n", playerNum);
+                startRange = playerNum;
+                if ((endRange - startRange) > 10) {
+                    playerNum += 10;
                 } else {
-                    gamer++;
+                    playerNum++;
                 }
             }
         }
-        System.out.printf("Вы победили! число %d\n", gamer);
+        System.out.printf("Вы победили! число %d\n", playerNum);
     }
 }
