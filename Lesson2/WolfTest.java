@@ -7,7 +7,7 @@ public class WolfTest {
         wolf.setWeight(47.5);
         wolf.setColor("серый");
         if (wolf.getAge() != 0) {
-            if (!wolf.getMale()){
+            if (!wolf.getMale()) {
                 System.out.println(wolf.getName() + " " + wolf.getColor() + " самка");
             } else {
                 System.out.println(wolf.getName() + " " + wolf.getColor() + " самец");
