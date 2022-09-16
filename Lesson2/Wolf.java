@@ -37,11 +37,12 @@ public class Wolf {
         return male;
     }
 
-    public double getWeight() {
-        return weight;
-    }
     public int getAge() {
         return age;
+    }
+
+    public double getWeight() {
+        return weight;
     }
 
     public String getColor() {
