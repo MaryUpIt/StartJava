@@ -67,5 +67,4 @@ public class GuessNumber {
             checkPlayerNumber(player2);
         }
     }
-
 }
