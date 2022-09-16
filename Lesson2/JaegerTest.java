@@ -10,6 +10,7 @@ public class JaegerTest {
         gipsyAvenger.descriptions();
         gipsyAvenger.destination();
         gipsyAvenger.move();
+        
         Jaeger saberAthena = new Jaeger("Saber Athena", 7, 76.9, 1.6, 5, 10);
         saberAthena.setCanFly(true);
         saberAthena.descriptions();
