@@ -19,6 +19,9 @@ public class GuessNumber {
         while (!isWin) {
             inputPlayerNumber(player1);
             compareNumbers(player1);
+            if (isWin) {
+                return;
+            }
             inputPlayerNumber(player2);
             compareNumbers(player2);
         }
