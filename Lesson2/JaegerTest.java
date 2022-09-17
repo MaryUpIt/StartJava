@@ -7,14 +7,14 @@ public class JaegerTest {
         gipsyAvenger.setHeight(81.7);
         gipsyAvenger.setStrenght();
         gipsyAvenger.setArmor();
-        gipsyAvenger.descriptions();
-        gipsyAvenger.destination();
+        gipsyAvenger.describe();
         gipsyAvenger.move();
+        gipsyAvenger.specify();
         
         Jaeger saberAthena = new Jaeger("Saber Athena", 7, 76.9, 1.6, 5, 10);
         saberAthena.setCanFly(true);
-        saberAthena.descriptions();
+        saberAthena.describe();
         saberAthena.move();
-        saberAthena.destination();
+        saberAthena.specify();
     }
 }
