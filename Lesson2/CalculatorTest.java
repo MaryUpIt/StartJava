@@ -3,9 +3,8 @@ import java.util.Scanner;
 public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String answer;
-        do {
-            answer = "ok";
+        String answer = "yes";
+        while (!answer.equals("no")) {
             System.out.print("Введите первое число: ");
             int a = scanner.nextInt();
             System.out.print("Введите знак математической операции: ");
@@ -13,11 +12,11 @@ public class CalculatorTest {
             System.out.print("Введите второе число: ");
             int b = scanner.nextInt();
             Calculator calculator = new Calculator(a, b, sign);
-            System.out.printf("%d %c %d = %d\n", a, sign, b, calculator.result());
-            while (!answer.equals("yes") && !answer.equals("no")) {
+            System.out.printf("%d %c %d = %d\n", a, sign, b, calculator.calculating());
+            do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
                 answer = scanner.next();
-            }
-        } while (!answer.equals("no"));
+            } while (!answer.equals("yes") && !answer.equals("no"));
+        }
     }
 }
