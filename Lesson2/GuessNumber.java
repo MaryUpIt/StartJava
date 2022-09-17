@@ -39,7 +39,6 @@ public class GuessNumber {
         player.setNumber(scanner.nextInt());
     }
 
-
     private void compareNumbers(Player player) {
         if (player.getNumber() == secretNumber) {
             System.out.printf("%s победил!\n", player.getName());
