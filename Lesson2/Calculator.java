@@ -9,8 +9,7 @@ public class Calculator {
         this.sign = sign;
     }
 
-    public int calculating() {
-        int result = 0;
+    public int calculate() {
         switch(sign) {
             case '+':
                 return a + b;
@@ -33,7 +32,7 @@ public class Calculator {
                     break;
                 }
             case '^':
-                result = 1;
+                int result = 1;
                 while (b >= 1) {
                     result *= a;
                     b--;
@@ -42,6 +41,6 @@ public class Calculator {
             default:
                 System.out.println("Ошибка: знак операции неверный!");
             }
-        return result;
+        return 0;
     }
 }
