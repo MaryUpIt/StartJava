@@ -12,7 +12,7 @@ public class CalculatorTest {
             System.out.print("Введите второе число: ");
             int b = scanner.nextInt();
             Calculator calculator = new Calculator(a, b, sign);
-            System.out.printf("%d %c %d = %d\n", a, sign, b, calculator.calculating());
+            System.out.printf("%d %c %d = %d\n", a, sign, b, calculator.calculate());
             do {
                 System.out.print("Хотите продолжить вычисления? [yes/no]: ");
                 answer = scanner.next();
