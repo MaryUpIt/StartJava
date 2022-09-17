@@ -4,7 +4,7 @@ public class Player {
     private String playerName;
     private int playerNumber;
 
-    Player (String playerName) {
+    Player(String playerName) {
         this.playerName = playerName;
     }
 
@@ -18,9 +18,5 @@ public class Player {
 
     public int getNumber() {
         return playerNumber;
-    }
-
-    public void play() {
-        System.out.printf("%s называет число: %d\n", playerName, playerNumber);
     }
 }
