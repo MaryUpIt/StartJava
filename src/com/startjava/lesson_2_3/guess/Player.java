@@ -3,26 +3,22 @@ package com.startjava.lesson_2_3.guess;
 import java.lang.Math;
 
 public class Player {
-    private String playerName;
-    private int playerNumber;
+    private String name;
+    private int number;
 
-    Player (String playerName) {
-        this.playerName = playerName;
+    Player(String name) {
+        this.name = name;
     }
 
-    public void setNumber(int playerNumber) {
-        this.playerNumber = playerNumber;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public String getName() {
-        return playerName;
+        return name;
     }
 
     public int getNumber() {
-        return playerNumber;
-    }
-
-    public void play() {
-        System.out.printf("%s называет число: %d\n", playerName, playerNumber);
+        return number;
     }
 }
