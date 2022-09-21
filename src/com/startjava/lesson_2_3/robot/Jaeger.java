@@ -55,7 +55,7 @@ public class Jaeger {
         this.canFly = canFly;
     }
 
-    public void describe() {
+    public void descriptions() {
         System.out.println("\nWar Titan: \"" + modelName + "\". Model \"Mark-" + mark + 
             "\"\nHeight: " + height + " Weight: " + weight + 
             "\nArmor: " + armor + " Strength: " + strenght);
@@ -73,7 +73,7 @@ public class Jaeger {
         }
     }
 
-    public void specify() {
+    public void destination() {
         System.out.print("\nTitan's destinations: ");
         if (strenght > 7) {
             System.out.printf("\nTitan %s is strength",modelName);
