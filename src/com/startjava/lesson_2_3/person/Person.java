@@ -8,18 +8,18 @@ public class Person {
     double weight = 45.5;
 
     void walk() {
-        System.out.prinln("walking");
+        System.out.println("walking");
     }
 
     void run() {
-        System.out.prinln("running");
+        System.out.println("running");
     }
 
     void sit() {
-        System.out.prinln("sitting");
+        System.out.println("sitting");
     }
 
     void talk() {
-        System.out.prinln("talking");
+        System.out.println("talking");
     }
 }
