@@ -1,0 +1,9 @@
+out/
+#игнорировать папку out
+options
+optionsj
+#игнорировать файлы
+.idea
+StartJava.iml
+
+
