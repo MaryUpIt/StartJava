@@ -15,10 +15,19 @@ public class GuessNumber {
         this.player2 = player2;
     }
 
-    public void play() {
+    public void game() {
         setSecretNumber();
         System.out.println("У каждого игрока по 10 попыток.");
-        play(player1, player2);
+        int countRate = 1;
+        while (countRate <= 10) {
+            if (play(player1, countRate)) {
+                break;
+            }
+            if (play(player2, countRate)) {
+                break;
+            }
+            countRate++;
+        }
         player1.printNumbers();
         player2.printNumbers();
     }
@@ -43,33 +52,18 @@ public class GuessNumber {
         }
         return false;
     }
-    private void play(Player player1, Player player2) {
-        int countRate = 1;
-        while (countRate <= 10) {
-            inputNumber(player1);
-            player1.addNumbers();
-            player1.setAttempt(countRate);
-            if (compareNumbers(player1)) {
-                System.out.println("Игрок " + player1.getName() + " угадал число " +
-                        player1.getNumber() + " с " + player1.getAttempt() + " попытки");
-                break;
-            }
-            inputNumber(player2);
-            player2.addNumbers();
-            player2.setAttempt(countRate);
-
-            if (compareNumbers(player2)) {
-                System.out.println("Игрок " + player2.getName() + " угадал число " +
-                        player2.getNumber() + " с " + player2.getAttempt() + " попытки");
-                break;
-            }
-            if (player1.getAttempt() == 10) {
-                System.out.println("У " + player1.getName() + " закончились попытки");
-            }
-            if (player2.getAttempt() == 10) {
-                System.out.println("У " + player2.getName() + " закончились попытки");
-            }
-            countRate++;
+    private boolean play (Player player, int countRate) {
+        inputNumber(player);
+        player.addNumbers();
+        player.setAttempt(countRate);
+        boolean isWin = compareNumbers(player);
+        if (isWin) {
+            System.out.println("Игрок " + player.getName() + " угадал число " +
+                    player.getNumber() + " с " + player.getAttempt() + " попытки");
         }
+        if (countRate == 10) {
+            System.out.println("У " + player.getName() + " закончились попытки");
+        }
+        return isWin;
     }
 }
