@@ -1,53 +1,41 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    private int a;
-    private int b;
-    private char sign;
-
-    public Calculator (int a, int b, char sign)
+    private int number1;
+    private int number2;
+    private char mathOperator;
+    public Calculator (String mathExpression)
     {
-        this.a = a;
-        this.b =b;
-        this.sign = sign;
+        String[] arrMathExpression = mathExpression.split(" ");
+        number1 = Integer.parseInt(arrMathExpression[0]);
+        mathOperator = arrMathExpression[1].charAt(0);
+        number2 = Integer.parseInt(arrMathExpression[2]);
     }
-
-    public int result() {
-        int result = 0;
-        switch(sign) {
-        case '+':
-            result = a + b;
-            break;
-        case '-':
-            result = a - b;
-            break;
-        case '*':
-            result = a * b;
-            break;
-        case '/':
-            if (b != 0) {
-                result = a / b;
-            } else {
-                System.out.println("Ошибка: делить на ноль нельзя!");
-            }
-            break;
-        case '%':
-            if (b != 0) {
-                result = a % b;
-            } else {
-                System.out.println("Ошибка: делить на ноль нельзя!");
-            }
-            break;
-        case '^':
-            result = 1 ;
-            while (b >= 1) {
-                result *= a;
-                b--;
-            }
-            break;
-        default:
-            System.out.println("Ошибка: знак операции неверный!");
+      public int calculate() {
+        switch (mathOperator) {
+            case '+':
+                return Math.addExact(number1, number2);
+            case '-':
+                return Math.subtractExact(number1, number2);
+            case '*':
+                return Math.multiplyExact(number1, number2);
+            case'/':
+                if (number2 == 0) {
+                    System.out.println("Ошибка: на ноль делить нельзя!");
+                    break;
+                }
+                return Math.floorDiv(number1, number2);
+            case '%':
+                if (number2 == 0) {
+                    System.out.println("Ошибка: на ноль делить нельзя!");
+                    break;
+                }
+                return Math.floorMod(number1, number2);
+            case '^':
+                return (int) Math.pow(number1, number2);
+            default:
+                System.out.println("Ошибка: знак операции неверный!");
         }
-        return result;
+        return 0;
     }
 }
