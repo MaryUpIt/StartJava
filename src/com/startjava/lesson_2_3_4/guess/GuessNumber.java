@@ -7,6 +7,7 @@ public class GuessNumber {
     private int secretNumber;
     private Player player1;
     private Player player2;
+    final  private  int attempt = 10;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -18,15 +19,15 @@ public class GuessNumber {
     public void game() {
         setSecretNumber();
         System.out.println("У каждого игрока по 10 попыток.");
-        int countRate = 1;
-        while (countRate <= 10) {
-            if (play(player1, countRate)) {
+        int countAttempts = 1;
+        while (countAttempts <= attempt) {
+            if (play(player1, countAttempts)) {
                 break;
             }
-            if (play(player2, countRate)) {
+            if (play(player2, countAttempts)) {
                 break;
             }
-            countRate++;
+            countAttempts++;
         }
         player1.printNumbers();
         player2.printNumbers();
@@ -52,16 +53,16 @@ public class GuessNumber {
         }
         return false;
     }
-    private boolean play (Player player, int countRate) {
+    private boolean play (Player player, int countAttempts) {
         inputNumber(player);
         player.addNumbers();
-        player.setAttempt(countRate);
+        player.setAttempt(countAttempts);
         boolean isWin = compareNumbers(player);
         if (isWin) {
             System.out.println("Игрок " + player.getName() + " угадал число " +
                     player.getNumber() + " с " + player.getAttempt() + " попытки");
         }
-        if (countRate == 10) {
+        if (countAttempts == 10) {
             System.out.println("У " + player.getName() + " закончились попытки");
         }
         return isWin;
