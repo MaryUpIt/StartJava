@@ -11,7 +11,7 @@ public class Calculator {
         mathOperator = arrMathExpression[1].charAt(0);
         number2 = Integer.parseInt(arrMathExpression[2]);
     }
-      public int calculate() {
+      public  int calculate(String mathExpression) {
         switch (mathOperator) {
             case '+':
                 return Math.addExact(number1, number2);
