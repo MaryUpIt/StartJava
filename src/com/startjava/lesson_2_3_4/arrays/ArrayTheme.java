@@ -75,9 +75,8 @@ public class ArrayTheme {
                 }
             }
         }
-        printArray(intArray, 10);
         sortArray(intArray);
-        System.out.println("Отсортированный значения: ");
+        System.out.println("Отсортированные значения: ");
         printArray(intArray, 10);
 
         System.out.println("\n6.со* Сдвиг элементов массива.");
