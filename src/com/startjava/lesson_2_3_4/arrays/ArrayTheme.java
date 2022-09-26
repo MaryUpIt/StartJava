@@ -4,12 +4,13 @@ public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("1. Реверс значений массива.");
         int[] intArray = {4, 2, 5, 7, 1, 3, 6};
+        int lengthArray = intArray.length;
         System.out.println("Исходный массив:");
         printArray(intArray);
-        for (int i = 0; i < intArray.length / 2; i++) {
+        for (int i = 0; i < lengthArray / 2; i++) {
             int tmp = intArray[i];
-            intArray[i] = intArray[intArray.length - 1 - i];
-            intArray[intArray.length - 1 - i] = tmp;
+            intArray[i] = intArray[--lengthArray - i];
+            intArray[--lengthArray - i] = tmp;
         }
 
         System.out.println("\nРеверсия исходного массива:");
@@ -17,16 +18,17 @@ public class ArrayTheme {
 
         System.out.println("\n\n2. Вывод произведения элементов массива");
         intArray = new int[10];
-        for (int i = 0; i < intArray.length; i++) {
+        lengthArray = intArray.length;
+        for (int i = 0; i < lengthArray; i++) {
             intArray[i] = i;
         }
         System.out.println("Под индексом 0 в массиве находится число: " + intArray[0]);
         System.out.println("Под индексом 9 в массиве находится число: " + intArray[9]);
         System.out.print("Умножение элементов массива: ");
         int productNumbers = 1;
-        for (int i = 1; i < intArray.length - 1; i++) {
+        for (int i = 1; i < lengthArray - 1; i++) {
             productNumbers *= intArray[i];
-            System.out.print(intArray[i] + ((i != intArray.length - 2) ? " * " : " = " + productNumbers));
+            System.out.print(intArray[i] + ((i != lengthArray - 2) ? " * " : " = " + productNumbers));
         }
 
         System.out.println("\n\n3.Удаление элементов массива");
@@ -62,7 +64,8 @@ public class ArrayTheme {
 
         System.out.println("\n5. Генерация случайных чисел");
         intArray = new int[30];
-        for (int i = 0; i < intArray.length; i++) {
+        lengthArray = intArray.length;
+        for (int i = 0; i < lengthArray; i++) {
             boolean unique = false;
             while (!unique) {
                 intArray[i] = (int) (60 + Math.random() * 40);
@@ -94,21 +97,21 @@ public class ArrayTheme {
         int destIndex = 0;
         while (srcIndex < srcArray.length) {
             int countStrings = 0;
-            if(srcArray[srcIndex].isBlank()) {
-                srcIndex++;
-            } else {
+            while (true) {
+                if (srcArray[srcIndex].isBlank()) {
+                    break;
+                }
                 countStrings++;
+                srcIndex++;
             }
-            System.arraycopy(srcArray, srcIndex, destArray, destIndex, countStrings);
+            System.arraycopy(srcArray, srcIndex  - countStrings, destArray, destIndex, countStrings);
             destIndex += countStrings;
-            srcIndex += countStrings;
+            srcIndex++;
         }
-
         System.out.println("\nОтредактированный массив:");
         for (String string : destArray) {
             System.out.print("[" + string + "]");
         }
-
     }
 
     private static void sortArray(int[] array) {
