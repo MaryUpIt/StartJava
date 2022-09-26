@@ -7,10 +7,11 @@ public class ArrayTheme {
         int lengthArray = intArray.length;
         System.out.println("Исходный массив:");
         printArray(intArray);
-        for (int i = 0; i < lengthArray / 2; i++) {
+
+        for (int i = 0; i < lengthArray; i++) {
             int tmp = intArray[i];
-            intArray[i] = intArray[--lengthArray - i];
-            intArray[--lengthArray - i] = tmp;
+            intArray[i] = intArray[--lengthArray];
+            intArray[lengthArray] = tmp;
         }
 
         System.out.println("\nРеверсия исходного массива:");
