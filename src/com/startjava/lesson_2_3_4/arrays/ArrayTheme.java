@@ -114,7 +114,29 @@ public class ArrayTheme {
             System.out.print("[" + string + "]");
         }
     }
-
+    private static void printArray(int[] array) {
+        for (int number : array) {
+            System.out.print(number + " ");
+        }
+    }
+    private static void printArray(double[] array, int newLine) {
+        for (int i = 0; i < array.length; i++) {
+            if (i % newLine == 0 && i != 0) {
+                System.out.println();
+            }
+            System.out.printf("%.3f ", array[i]);
+        }
+    }
+    private static void printArray(int[] array, int newLine) {
+        int newLineIndex = 0;
+        for (int number : array) {
+            newLineIndex++;
+            System.out.print(number + " ");
+            if (newLineIndex % newLine == 0 && newLineIndex != 0) {
+                System.out.println();
+            }
+        }
+    }
     private static void sortArray(int[] array) {
         boolean isSorted = false;
         while (!isSorted) {
@@ -126,32 +148,6 @@ public class ArrayTheme {
                     array[i] = array[i - 1];
                     array[i - 1] = tmp;
                 }
-            }
-        }
-    }
-
-    private static void printArray(double[] array, int newLine) {
-        for (int i = 0; i < array.length; i++) {
-            if (i % newLine == 0 && i != 0) {
-                System.out.println();
-            }
-            System.out.printf("%.3f ", array[i]);
-        }
-    }
-
-    private static void printArray(int[] array) {
-        for (int number : array) {
-            System.out.print(number + " ");
-        }
-    }
-
-    private static void printArray(int[] array, int newLine) {
-        int newLineIndex = 0;
-        for (int number : array) {
-            newLineIndex++;
-            System.out.print(number + " ");
-            if (newLineIndex % newLine == 0 && newLineIndex != 0) {
-                System.out.println();
             }
         }
     }
