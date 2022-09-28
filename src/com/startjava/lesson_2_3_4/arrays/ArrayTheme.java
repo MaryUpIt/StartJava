@@ -96,29 +96,32 @@ public class ArrayTheme {
         String[] destArray = new String[newLength];
         int srcIndex = 0;
         int destIndex = 0;
+
         while (srcIndex < srcArray.length) {
             int countStrings = 0;
-            while (true) {
-                if (srcArray[srcIndex].isBlank()) {
-                    break;
-                }
+            if (srcArray[srcIndex].isBlank()) {
+                srcIndex++;
+                continue;
+            }
+            while (!srcArray[srcIndex].isBlank()) {
                 countStrings++;
                 srcIndex++;
             }
             System.arraycopy(srcArray, srcIndex  - countStrings, destArray, destIndex, countStrings);
             destIndex += countStrings;
-            srcIndex++;
         }
         System.out.println("\nОтредактированный массив:");
         for (String string : destArray) {
             System.out.print("[" + string + "]");
         }
     }
+
     private static void printArray(int[] array) {
         for (int number : array) {
             System.out.print(number + " ");
         }
     }
+
     private static void printArray(double[] array, int newLine) {
         for (int i = 0; i < array.length; i++) {
             if (i % newLine == 0 && i != 0) {
@@ -127,6 +130,7 @@ public class ArrayTheme {
             System.out.printf("%.3f ", array[i]);
         }
     }
+
     private static void printArray(int[] array, int newLine) {
         int newLineIndex = 0;
         for (int number : array) {
@@ -137,6 +141,7 @@ public class ArrayTheme {
             }
         }
     }
+
     private static void sortArray(int[] array) {
         boolean isSorted = false;
         while (!isSorted) {
