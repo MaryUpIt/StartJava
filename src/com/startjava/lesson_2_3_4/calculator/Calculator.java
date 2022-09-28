@@ -1,17 +1,15 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-    private int number1;
-    private int number2;
-    private char mathOperator;
-    public Calculator (String mathExpression)
-    {
+    private static int number1;
+    private static int number2;
+    private static char mathOperator;
+
+    public static int calculate(String mathExpression) {
         String[] arrMathExpression = mathExpression.split(" ");
         number1 = Integer.parseInt(arrMathExpression[0]);
         mathOperator = arrMathExpression[1].charAt(0);
         number2 = Integer.parseInt(arrMathExpression[2]);
-    }
-      public  int calculate(String mathExpression) {
         switch (mathOperator) {
             case '+':
                 return Math.addExact(number1, number2);
@@ -19,7 +17,7 @@ public class Calculator {
                 return Math.subtractExact(number1, number2);
             case '*':
                 return Math.multiplyExact(number1, number2);
-            case'/':
+            case '/':
                 if (number2 == 0) {
                     System.out.println("Ошибка: на ноль делить нельзя!");
                     break;
