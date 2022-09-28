@@ -10,24 +10,31 @@ public class Player {
     Player(String name) {
         this.name = name;
     }
+
     public void setNumber(int number) {
                 this.number = number;
     }
+
     public void setAttempt(int attempt) {
         this.attempt = attempt;
     }
+
     public void addNumbers () {
         numbers[attempt] = number;
     }
+
     public String getName() {
         return name;
     }
+
     public int getNumber() {
         return number;
     }
+
     public  int getAttempt() {
         return attempt;
     }
+
     public void printNumbers() {
         int[] numbersCopy = Arrays.copyOf(numbers, attempt);
         System.out.println("Игрок " + name + " называл числа: ");
@@ -36,6 +43,7 @@ public class Player {
         }
         System.out.println();
     }
+
     public void restartPlayer () {
         Arrays.fill(numbers, 0, attempt, 0);
         attempt = 0;

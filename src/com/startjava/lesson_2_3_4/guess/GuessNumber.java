@@ -7,7 +7,7 @@ public class GuessNumber {
     private int secretNumber;
     private Player player1;
     private Player player2;
-    final  private  int attempt = 10;
+    final  private  int ATTEMPTS = 10;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -20,7 +20,7 @@ public class GuessNumber {
         setSecretNumber();
         System.out.println("У каждого игрока по 10 попыток.");
         int countAttempts = 1;
-        while (countAttempts <= attempt) {
+        while (countAttempts <= ATTEMPTS) {
             if (play(player1, countAttempts)) {
                 break;
             }
@@ -43,6 +43,7 @@ public class GuessNumber {
         System.out.print(player.getName() + ", введите число: ");
         player.setNumber(scanner.nextInt());
     }
+
     private boolean compareNumbers(Player player) {
         if (player.getNumber() == secretNumber) {
             return true;
@@ -53,6 +54,7 @@ public class GuessNumber {
         }
         return false;
     }
+
     private boolean play (Player player, int countAttempts) {
         inputNumber(player);
         player.addNumbers();
