@@ -4,14 +4,14 @@ public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("1. Реверс значений массива.");
         int[] intArray = {4, 2, 5, 7, 1, 3, 6};
-        int lengthArray = intArray.length;
+        int lenArr = intArray.length;
         System.out.println("Исходный массив:");
         printArray(intArray);
 
-        for (int i = 0; i < lengthArray; i++) {
+        for (int i = 0; i < lenArr; i++) {
             int tmp = intArray[i];
-            intArray[i] = intArray[--lengthArray];
-            intArray[lengthArray] = tmp;
+            intArray[i] = intArray[--lenArr];
+            intArray[lenArr] = tmp;
         }
 
         System.out.println("\nРеверсия исходного массива:");
@@ -19,17 +19,17 @@ public class ArrayTheme {
 
         System.out.println("\n\n2. Вывод произведения элементов массива");
         intArray = new int[10];
-        lengthArray = intArray.length;
-        for (int i = 0; i < lengthArray; i++) {
+        lenArr = intArray.length;
+        for (int i = 0; i < lenArr; i++) {
             intArray[i] = i;
         }
         System.out.println("Под индексом 0 в массиве находится число: " + intArray[0]);
         System.out.println("Под индексом 9 в массиве находится число: " + intArray[9]);
         System.out.print("Умножение элементов массива: ");
         int productNumbers = 1;
-        for (int i = 1; i < lengthArray - 1; i++) {
+        for (int i = 1; i < lenArr - 1; i++) {
             productNumbers *= intArray[i];
-            System.out.print(intArray[i] + ((i != lengthArray - 2) ? " * " : " = " + productNumbers));
+            System.out.print(intArray[i] + ((i != lenArr - 2) ? " * " : " = " + productNumbers));
         }
 
         System.out.println("\n\n3.Удаление элементов массива");
@@ -65,8 +65,8 @@ public class ArrayTheme {
 
         System.out.println("\n5. Генерация случайных чисел");
         intArray = new int[30];
-        lengthArray = intArray.length;
-        for (int i = 0; i < lengthArray; i++) {
+        lenArr = intArray.length;
+        for (int i = 0; i < lenArr; i++) {
             boolean unique = false;
             while (!unique) {
                 intArray[i] = (int) (60 + Math.random() * 40);
