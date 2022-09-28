@@ -34,16 +34,17 @@ public class ArrayTheme {
 
         System.out.println("\n\n3.Удаление элементов массива");
         double[] doubleArray = new double[15];
-        for (int i = 0; i < doubleArray.length; i++) {
+        lenArr = doubleArray.length;
+        for (int i = 0; i < lenArr; i++) {
             doubleArray[i] = Math.random();
         }
         System.out.println("Исходный массив:");
         printArray(doubleArray, 8);
 
-        double middleNumber = doubleArray[doubleArray.length / 2];
+        double middleNumber = doubleArray[lenArr / 2];
         int countZero = 0;
         System.out.printf("\nУдаление из массива значений больше %.3f:\n", middleNumber);
-        for (int i = 0; i < doubleArray.length; i++) {
+        for (int i = 0; i < lenArr; i++) {
             if (doubleArray[i] > middleNumber) {
                 doubleArray[i] = 0;
                 countZero++;
@@ -55,11 +56,12 @@ public class ArrayTheme {
         System.out.println("\n4.Вывод элементов массива лесенкой в обратном порядке");
         char[] alphabet = new char[26];
         int codeChar = 65;
-        for (int i = 0; i < alphabet.length; i++) {
+        lenArr = alphabet.length;
+        for (int i = 0; i < lenArr; i++) {
             alphabet[i] = (char) codeChar++;
         }
         String str = "";
-        for (int i = alphabet.length - 1; i >= 0; i--) {
+        for (int i = lenArr - 1; i >= 0; i--) {
             System.out.println(str += alphabet[i]);
         }
 
