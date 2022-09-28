@@ -5,7 +5,7 @@ public class Calculator {
     private static int number2;
     private static char mathOperator;
 
-    private static void setCalculator (String mathExpression) {
+    private static void setCalculator(String mathExpression) {
         String[] arrMathExpression = mathExpression.split(" ");
         number1 = Integer.parseInt(arrMathExpression[0]);
         mathOperator = arrMathExpression[1].charAt(0);
