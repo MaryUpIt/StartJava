@@ -5,15 +5,15 @@ public class Calculator {
     private static int number2;
     private static char mathOperator;
 
-    private static void setCalculator(String mathExpression) {
-        String[] arrMathExpression = mathExpression.split(" ");
-        number1 = Integer.parseInt(arrMathExpression[0]);
-        mathOperator = arrMathExpression[1].charAt(0);
-        number2 = Integer.parseInt(arrMathExpression[2]);
+    private static void parseExpression(String mathExpression) {
+        String[] partsExpression = mathExpression.split(" ");
+        number1 = Integer.parseInt(partsExpression[0]);
+        mathOperator = partsExpression[1].charAt(0);
+        number2 = Integer.parseInt(partsExpression[2]);
     }
 
     public static int calculate(String mathExpression) {
-        setCalculator(mathExpression);
+        parseExpression(mathExpression);
         switch (mathOperator) {
             case '+':
                 return Math.addExact(number1, number2);
