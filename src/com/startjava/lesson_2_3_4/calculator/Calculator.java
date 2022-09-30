@@ -24,7 +24,6 @@ public class Calculator {
         if (number2 == 0 && (mathOperator == '%' || mathOperator == '/')) {
             throw new ArithmeticException("Ошибка ввода. Делить на ноль нельзя!!!");
         }
-
         return switch (mathOperator) {
             case '+' -> Math.addExact(number1, number2);
             case '-' -> Math.subtractExact(number1, number2);
