@@ -60,7 +60,7 @@ public class GuessNumber {
 
     private boolean compareNumbers(Player player) {
         if (player.getNumber() == secretNumber) {
-            System.out.println("Игрок " + player.getName() + " угадал число " +
+            System.out.println("Игрок " + player.getName() + " угадал число  " +
                     player.getNumber() + " с " + player.getAttempt() + " попытки");
             return true;
         } else if (player.getNumber() > secretNumber) {
