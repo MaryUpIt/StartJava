@@ -1,6 +1,6 @@
 package com.startjava.lesson_2_3_4.calculator;
 
-import com.startjava.lesson_2_3_4.calculatorCopy.CalculatorCopy;
+import com.startjava.lesson_2_3_4.calculator.Calculator;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class CalculatorTest {
             System.out.print("Введите математическое выражение: ");
             String mathExpression = scanner.nextLine();
             try {
-                System.out.println(mathExpression + " = " + CalculatorCopy.calculate(mathExpression));
+                System.out.println(mathExpression + " = " + Calculator.calculate(mathExpression));
             } catch (RuntimeException exp) {
                 System.out.println(exp);
             }
