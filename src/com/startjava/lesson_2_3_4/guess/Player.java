@@ -7,6 +7,7 @@ public class Player {
     private int number;
     private int attempt = 0;
     private int[] numbers = new int[10];
+
     Player(String name) {
         this.name = name;
     }
@@ -19,7 +20,7 @@ public class Player {
         this.attempt = attempt;
     }
 
-    public void addNumbers () {
+    public void addNumber () {
         numbers[attempt] = number;
     }
 
@@ -35,16 +36,11 @@ public class Player {
         return attempt;
     }
 
-    public void printNumbers() {
-        int[] numbersCopy = Arrays.copyOf(numbers, attempt);
-        System.out.println("Игрок " + name + " называл числа: ");
-        for (int number : numbersCopy) {
-            System.out.print(number + " ");
-        }
-        System.out.println();
+    public int[] getNumbers() {
+        return numbers;
     }
 
-    public void restartPlayer () {
+    public void initPlayer() {
         Arrays.fill(numbers, 0, attempt, 0);
         attempt = 0;
     }
