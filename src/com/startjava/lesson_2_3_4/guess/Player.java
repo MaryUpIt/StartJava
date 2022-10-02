@@ -4,44 +4,63 @@ import java.util.Arrays;
 
 public class Player {
     private String name;
-    private int number;
-    private int attempt = 0;
-    private int[] numbers = new int[10];
+    private int[] numbers = new int[GuessNumber.ATTEMPTS];
+    private int attempt;
+    private int amountWins;
+
 
     Player(String name) {
         this.name = name;
     }
 
-    public void setNumber(int number) {
-                this.number = number;
+    public void addNumber(String stringNumber) {
+        try {
+            int number = Integer.parseInt(stringNumber);
+            if (number > 0 && number <= 100) {
+                numbers[attempt++] = number;
+            } else {
+                attempt++;
+                throw new IllegalArgumentException();
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Вводите только целые числа!!");
+            attempt++;
+        }
+
     }
 
-    public void setAttempt(int attempt) {
-        this.attempt = attempt;
+    public void setAmountWin() {
+        amountWins = 0;
     }
 
-    public void addNumber () {
-        numbers[attempt] = number;
+    public void addAmountWin() {
+        amountWins++;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getNumber() {
-        return number;
+    public int[] getNumbers() {
+        int[] copyNumbers = Arrays.copyOf(numbers, attempt);
+        return copyNumbers;
     }
 
-    public  int getAttempt() {
+    public int getAttempt() {
         return attempt;
     }
 
-    public int[] getNumbers() {
-        return numbers;
-    }
-
-    public void initPlayer() {
+    public void resetPlayer() {
         Arrays.fill(numbers, 0, attempt, 0);
         attempt = 0;
     }
+
+    public boolean hasAttempt() {
+        return this.attempt < GuessNumber.ATTEMPTS;
+    }
+
+    public int getAmountWins() {
+        return amountWins;
+    }
+
 }
