@@ -39,7 +39,7 @@ public class GuessNumber {
                         continue;
                     }
                     if (isWin = isGuessed(player)) {
-                        player.addAmountWin();
+                        player.inkAmountWin();
                         System.out.println(player.getAmountWins()); //
                         break;
                     }
@@ -80,15 +80,15 @@ public class GuessNumber {
     private void inputNumber(Player player) {
         System.out.print(player.getName() + ", введите число: ");
         try {
-            player.addNumber(scanner.nextLine());
-        } catch (IllegalArgumentException exp) {
+            player.addNumber(scanner.nextInt());
+        } catch (NumberFormatException exp) {
             System.out.println("Введите число в интервале от 1 до 100!");
         }
     }
 
     private boolean compareNumbers(Player player) {
         int number = player.getNumbers()[player.getNumbers().length - 1];
-        if (number == 0) {
+        if (number > 100 || number <= 0) {
             return false;
         }
         if (number == secretNumber) {
@@ -104,9 +104,7 @@ public class GuessNumber {
     private void printNumbers(Player player) {
         System.out.println("Игрок " + player.getName() + " называл числа: ");
         for (int number : player.getNumbers()) {
-            if (number != 0) {
                 System.out.print(number + " ");
-            }
         }
         System.out.println();
     }

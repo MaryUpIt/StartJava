@@ -8,46 +8,39 @@ public class Player {
     private int attempt;
     private int amountWins;
 
-
     Player(String name) {
         this.name = name;
-    }
-
-    public void addNumber(String stringNumber) {
-        try {
-            int number = Integer.parseInt(stringNumber);
-            if (number > 0 && number <= 100) {
-                numbers[attempt++] = number;
-            } else {
-                attempt++;
-                throw new IllegalArgumentException();
-            }
-        } catch (NumberFormatException e) {
-            System.out.println("Вводите только целые числа!!");
-            attempt++;
-        }
-
-    }
-
-    public void setAmountWin() {
-        amountWins = 0;
-    }
-
-    public void addAmountWin() {
-        amountWins++;
     }
 
     public String getName() {
         return name;
     }
 
+    public void addNumber(int number) {
+        numbers[attempt++] = number;
+        if (number <= 0 || number > 100) {
+            throw new NumberFormatException();
+        }
+    }
+
     public int[] getNumbers() {
-        int[] copyNumbers = Arrays.copyOf(numbers, attempt);
-        return copyNumbers;
+        return Arrays.copyOf(numbers, attempt);
     }
 
     public int getAttempt() {
         return attempt;
+    }
+
+    public void setAmountWin() {
+        amountWins = 0;
+    }
+
+    public int getAmountWins() {
+        return amountWins;
+    }
+
+    public void inkAmountWin() {
+        amountWins++;
     }
 
     public void resetPlayer() {
@@ -58,9 +51,4 @@ public class Player {
     public boolean hasAttempt() {
         return this.attempt < GuessNumber.ATTEMPTS;
     }
-
-    public int getAmountWins() {
-        return amountWins;
-    }
-
 }

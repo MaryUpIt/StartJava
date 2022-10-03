@@ -16,9 +16,10 @@ public class GuessNumberTest {
             } while (!answer.equals("yes") && !answer.equals("no"));
         }
     }
+
     private static Player[] initPlayers(int countPlayers) {
         Scanner scanner = new Scanner(System.in);
-        Player[] players = new Player[countPlayers];
+        Player[] players = new Player[GuessNumber.AMOUNT_PLAYERS];
         for (int i = 0; i < players.length; i++) {
             System.out.printf("Введите имя %d-го игрока: ", i + 1);
             players[i] = new Player(scanner.nextLine());
