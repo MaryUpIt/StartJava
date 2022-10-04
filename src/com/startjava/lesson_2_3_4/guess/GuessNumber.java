@@ -83,14 +83,12 @@ public class GuessNumber {
             player.addNumber(scanner.nextInt());
         } catch (NumberFormatException exp) {
             System.out.println("Введите число в интервале от 1 до 100!");
+            inputNumber(player);
         }
     }
 
     private boolean compareNumbers(Player player) {
         int number = player.getNumbers()[player.getNumbers().length - 1];
-        if (number > 100 || number <= 0) {
-            return false;
-        }
         if (number == secretNumber) {
             System.out.println("Игрок " + player.getName() + " угадал число  " +
                     number + " с " + player.getAttempt() + " попытки");

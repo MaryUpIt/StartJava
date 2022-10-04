@@ -17,8 +17,9 @@ public class Player {
     }
 
     public void addNumber(int number) {
-        numbers[attempt++] = number;
-        if (number <= 0 || number > 100) {
+        if (number > 0 && number <= 100) {
+            numbers[attempt++] = number;
+        } else {
             throw new NumberFormatException();
         }
     }
