@@ -59,7 +59,8 @@ public class BookShelf {
     }
 
     public void clear() {
-        this.books = new Book[VALUE_BOOK_SHELF];
+        Arrays.fill(books, 0, countBooks, null );
+
     }
 
     private Book[] getBooks() {
