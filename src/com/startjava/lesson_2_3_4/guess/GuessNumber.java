@@ -39,7 +39,7 @@ public class GuessNumber {
                         continue;
                     }
                     if (isWin = isGuessed(player)) {
-                        player.inkAmountWin();
+                        player.incAmountWin();
                         System.out.println(player.getAmountWins()); //
                         break;
                     }
@@ -81,8 +81,8 @@ public class GuessNumber {
         System.out.print(player.getName() + ", введите число: ");
         try {
             player.addNumber(scanner.nextInt());
-        } catch (NumberFormatException exp) {
-            System.out.println("Введите число в интервале от 1 до 100!");
+        } catch (NumberFormatException e) {
+            System.out.println(e.getMessage());
             inputNumber(player);
         }
     }
@@ -102,7 +102,7 @@ public class GuessNumber {
     private void printNumbers(Player player) {
         System.out.println("Игрок " + player.getName() + " называл числа: ");
         for (int number : player.getNumbers()) {
-                System.out.print(number + " ");
+            System.out.print(number + " ");
         }
         System.out.println();
     }

@@ -20,7 +20,7 @@ public class Player {
         if (number > 0 && number <= 100) {
             numbers[attempt++] = number;
         } else {
-            throw new NumberFormatException();
+            throw new NumberFormatException("Введите число в интервале от 1 до 100!");
         }
     }
 
@@ -40,7 +40,7 @@ public class Player {
         return amountWins;
     }
 
-    public void inkAmountWin() {
+    public void incAmountWin() {
         amountWins++;
     }
 
