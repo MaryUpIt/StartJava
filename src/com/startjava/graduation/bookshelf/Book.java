@@ -20,8 +20,6 @@ public class Book {
     }
 
     public String toString() {
-         return author + ", " + title + ", " + publishYear;
+        return author + ", " + title + ", " + publishYear;
     }
-
-
 }

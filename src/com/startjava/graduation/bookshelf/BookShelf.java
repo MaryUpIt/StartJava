@@ -59,8 +59,7 @@ public class BookShelf {
     }
 
     public void clear() {
-        Arrays.fill(books, 0, countBooks, null );
-
+        Arrays.fill(books, 0, countBooks, null);
     }
 
     private Book[] getBooks() {
@@ -97,6 +96,7 @@ public class BookShelf {
         }
         return lineLength;
     }
+
     private void printLine(String symbol) {
         System.out.print("|");
         for (int i = 0; i < getLineLength(); i++) {
@@ -104,6 +104,7 @@ public class BookShelf {
         }
         System.out.println("|");
     }
+
     private boolean isEmpty() {
         for (Book book : books) {
             if (book != null) {
