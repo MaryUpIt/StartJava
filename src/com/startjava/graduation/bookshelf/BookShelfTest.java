@@ -54,8 +54,8 @@ public class BookShelfTest {
     static private String analyzeCommand(BookShelf bookShelf) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите команду: ");
-        String key = scanner.nextLine();
-        switch (key.toUpperCase()) {
+        String command = scanner.nextLine();
+        switch (command.toUpperCase()) {
             case "SAVE" -> {
                 System.out.print("Введите автора книги: ");
                 String author = scanner.nextLine();
@@ -93,7 +93,7 @@ public class BookShelfTest {
             case "QUIT" -> System.out.println("Полка закрыта.");
             default -> System.err.println("Такой команды нет, выберите другую");
         }
-        return key;
+        return command;
     }
 }
 
