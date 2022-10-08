@@ -10,7 +10,7 @@ public class Book {
         this.author = author;
         this.title = title;
         this.publishYear = Integer.parseInt(publishYear);
-        if (this.publishYear > 2022 || this.publishYear < 1500) {
+        if (this.publishYear > 2022 || this.publishYear < 1700) {
             throw new IllegalArgumentException("Год печати должен быть реальным!!!");
         }
     }

@@ -5,45 +5,41 @@ import java.util.Arrays;
 public class BookShelf {
     private int countBooks;
     private final static int VALUE_BOOK_SHELF = 10;
-    static Book[] books = new Book[VALUE_BOOK_SHELF];
-    int lineLength;
+    private Book[] books = new Book[VALUE_BOOK_SHELF];
+    private int lineLength;
 
     public void saveBook(Book book) {
-        try {
-            books[countBooks++] = book;
-        } catch (ArrayIndexOutOfBoundsException e) {
+        if (countBooks == VALUE_BOOK_SHELF) {
             System.out.println("Полка переполнена");
+        } else {
+            books[countBooks++] = book;
         }
     }
 
-    public void findBook(String title) {
+    public Book findBook(String title) {
         int index = findIndexBook(title);
-        if (index == -1) {
-            System.out.println("Такой книги на полке нет");
+        if (index != -1) {
+            return getBooks()[index];
         } else {
-            System.out.println(getBooks()[index].toString());
+            throw new NullPointerException("Такой книги на полке нет");
         }
     }
 
     public void deleteBook(String title) {
-        int delIndex = findIndexBook(title);
-        if (delIndex == -1) {
+        int index = findIndexBook(title);
+        if (index == -1) {
             System.out.println("Такой книги на полке нет");
         } else {
-            for (int i = delIndex; i < books.length - 1; i++) {
-                if (books[i] == null) {
-                    break;
-                }
-                books[i] = books[i + 1];
-
-            }
             countBooks--;
+            System.arraycopy(books, index + 1, books, index, countBooks - index);
+            books[countBooks] = null;
         }
     }
 
     private int findIndexBook(String title) {
-        for (int i = 0; i < getBooks().length; i++) {
-            if (getBooks()[i].getTitle().equals(title)) {
+        Book[] copyBooks = Arrays.copyOf(books, countBooks);
+        for (int i = 0; i < copyBooks.length; i++) {
+            if (copyBooks[i].getTitle().equals(title)) {
                 return i;
             }
         }
@@ -60,52 +56,26 @@ public class BookShelf {
 
     public void clear() {
         Arrays.fill(books, 0, countBooks, null);
+        countBooks = 0;
     }
 
-    private Book[] getBooks() {
-        return Arrays.copyOf(books, countBooks);
+    public Book[] getBooks() {
+        return Arrays.copyOf(books, books.length);
     }
 
-    public void showAllBooks() {
-        if (isEmpty()) {
-            System.out.println("На данный момент полка пуста, положите хотя бы одну книгу.");
-        } else {
-            printLine("-");
-            for (Book book : books) {
-                if (book != null) {
-                    System.out.print("|" + book.toString());
-                    for (int i = book.toString().length(); i < getLineLength(); i++) {
-                        System.out.print(" ");
-                    }
-                    System.out.println("|");
-
-                } else {
-                    printLine(" ");
+    public int getLineLength() {
+        for (Book book : books) {
+            if (book != null) {
+                int bookLength = book.toString().length();
+                if (bookLength > lineLength) {
+                    lineLength = bookLength;
                 }
-                printLine("-");
-            }
-        }
-    }
-
-    private int getLineLength() {
-        for (Book book : getBooks()) {
-            int bookLength = book.toString().length();
-            if (bookLength > lineLength) {
-                lineLength = bookLength;
             }
         }
         return lineLength;
     }
 
-    private void printLine(String symbol) {
-        System.out.print("|");
-        for (int i = 0; i < getLineLength(); i++) {
-            System.out.print(symbol);
-        }
-        System.out.println("|");
-    }
-
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         for (Book book : books) {
             if (book != null) {
                 return false;
@@ -113,4 +83,13 @@ public class BookShelf {
         }
         return true;
     }
+
+//    public void test() {
+//        books[0] = new Book("Вуди Аллен", "Кстати ни о чем", "2020");
+//        books[1] = new Book("Кип Торн", "Черные дыры и складки времени", "1994");
+//        books[2] = new Book("Дэвид Дойч", "Начало бесконечности", "2011");
+//        books[3] = new Book("Алексей Иванов", "Сердце Пармы", "2020");
+//        books[4] = new Book("Виктор Пелевин", "КГБТ+", "2022");
+//        countBooks = 5;
+//    }
 }
