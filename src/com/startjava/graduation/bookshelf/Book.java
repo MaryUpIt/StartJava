@@ -1,6 +1,5 @@
 package com.startjava.graduation.bookshelf;
 
-
 public class Book {
     private String author;
     private String title;
@@ -20,6 +19,6 @@ public class Book {
     }
 
     public String toString() {
-        return author + ", " + title + ", " + publishYear;
+        return author + ", \"" + title + "\", " + publishYear;
     }
 }

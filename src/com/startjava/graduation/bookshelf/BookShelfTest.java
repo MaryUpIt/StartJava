@@ -24,7 +24,7 @@ public class BookShelfTest {
             System.out.println("|" + "-".repeat(lineLength) + "|");
             for (Book book : books) {
                 if (book != null) {
-                    System.out.print("|" + book.toString());
+                    System.out.print("|" + book);
                     System.out.println(" ".repeat(lineLength - book.toString().length()) + "|");
                 } else {
                     System.out.println("|" + " ".repeat(lineLength) + "|");
@@ -33,22 +33,6 @@ public class BookShelfTest {
             }
         }
         System.out.println("_".repeat(70));
-    }
-
-    private static void printMenu() {
-        System.out.println("-".repeat(70));
-        String menu = """
-                Для взаимодействия с приложением используйте КОМАНДЫ:
-                "SAVE" - положить книгу на полку
-                "FIND" - найти книгу
-                "DEL" - взять или убрать книгу
-                "FREE" - вывести количнство свободных мест на полке
-                "FULL" - вывести количнство книг на полке
-                "CLEAR" - убрать все книги с полки
-                "MENU" - показать меню
-                "QUIT" - выйти
-                """;
-        System.out.println(menu);
     }
 
     static private String analyzeCommand(BookShelf bookShelf) {
@@ -66,7 +50,7 @@ public class BookShelfTest {
                 try {
                     bookShelf.saveBook(new Book(author, title, publishYear));
                 } catch (NumberFormatException e) {
-                    System.err.println("Год печати должен быть чилом!!!");
+                    System.err.println("Год печати должен быть числом!!!");
                 } catch (IllegalArgumentException e) {
                     System.err.println(e.getMessage());
                 }
@@ -74,10 +58,8 @@ public class BookShelfTest {
             case "FIND" -> {
                 System.out.print("Введите название книги: ");
                 String title = scanner.nextLine();
-                try {
-                    System.out.println(bookShelf.findBook(title).toString());
-                } catch (NullPointerException e) {
-                    System.out.println(e.getMessage());
+                if (bookShelf.findBook(title) != null) {
+                    System.out.println("Книга найдена : " + bookShelf.findBook(title));
                 }
             }
             case "DEL" -> {
@@ -85,15 +67,30 @@ public class BookShelfTest {
                 String title = scanner.nextLine();
                 bookShelf.deleteBook(title);
             }
-            case "FREE" -> System.out.println("Количество сободных мест на полке - " + bookShelf.getFree());
+            case "FREE" -> System.out.println("Количество свободных мест на полке - " + bookShelf.getFree());
             case "FULL" -> System.out.println("Количество книг на полке - " + bookShelf.getCountBooks());
             case "CLEAR" -> bookShelf.clear();
             case "MENU" -> printMenu();
-//            case "TEST" -> bookShelf.test();
+            case "TEST" -> bookShelf.test();
             case "QUIT" -> System.out.println("Полка закрыта.");
             default -> System.err.println("Такой команды нет, выберите другую");
         }
         return command;
+    }
+
+    private static void printMenu() {
+        System.out.println("-".repeat(70));
+        System.out.println("""
+                Для взаимодействия с приложением используйте КОМАНДЫ:
+                "SAVE" - положить книгу на полку
+                "FIND" - найти книгу
+                "DEL" - взять или убрать книгу
+                "FREE" - вывести количество свободных мест на полке
+                "FULL" - вывести количество книг на полке
+                "CLEAR" - убрать все книги с полки
+                "MENU" - показать меню
+                "QUIT" - выйти
+                """);
     }
 }
 

@@ -5,8 +5,12 @@ import java.util.Arrays;
 public class BookShelf {
     private int countBooks;
     private final static int VALUE_BOOK_SHELF = 10;
-    private Book[] books = new Book[VALUE_BOOK_SHELF];
+    private Book[] books;
     private int lineLength;
+
+    public BookShelf(){
+        this.books = new Book[VALUE_BOOK_SHELF];
+    }
 
     public void saveBook(Book book) {
         if (countBooks == VALUE_BOOK_SHELF) {
@@ -19,10 +23,11 @@ public class BookShelf {
     public Book findBook(String title) {
         int index = findIndexBook(title);
         if (index != -1) {
-            return getBooks()[index];
+            return books[index];
         } else {
-            throw new NullPointerException("Такой книги на полке нет");
+            System.out.println("Такой книги на полке нет");
         }
+        return null;
     }
 
     public void deleteBook(String title) {
@@ -30,16 +35,15 @@ public class BookShelf {
         if (index == -1) {
             System.out.println("Такой книги на полке нет");
         } else {
-            countBooks--;
-            System.arraycopy(books, index + 1, books, index, countBooks - index);
+            System.out.println("Книга удалена с полки: " + books[index]);
+            System.arraycopy(books, index + 1, books, index, --countBooks - index);
             books[countBooks] = null;
         }
     }
 
     private int findIndexBook(String title) {
-        Book[] copyBooks = Arrays.copyOf(books, countBooks);
-        for (int i = 0; i < copyBooks.length; i++) {
-            if (copyBooks[i].getTitle().equals(title)) {
+        for (int i = 0; i < books.length; i++) {
+            if (books[i] != null && books[i].getTitle().equals(title)) {
                 return i;
             }
         }
@@ -84,12 +88,12 @@ public class BookShelf {
         return true;
     }
 
-    //    public void test() {
-//        books[0] = new Book("Вуди Аллен", "Кстати ни о чем", "2020");
-//        books[1] = new Book("Кип Торн", "Черные дыры и складки времени", "1994");
-//        books[2] = new Book("Дэвид Дойч", "Начало бесконечности", "2011");
-//        books[3] = new Book("Алексей Иванов", "Сердце Пармы", "2020");
-//        books[4] = new Book("Виктор Пелевин", "КГБТ+", "2022");
-//        countBooks = 5;
-//    }
+        public void test() {
+        books[0] = new Book("Вуди Аллен", "Кстати ни о чем", "2020");
+        books[1] = new Book("Кип Торн", "Черные дыры и складки времени", "1994");
+        books[2] = new Book("Дэвид Дойч", "Начало бесконечности", "2011");
+        books[3] = new Book("Алексей Иванов", "Сердце Пармы", "2020");
+        books[4] = new Book("Виктор Пелевин", "КГБТ+", "2022");
+        countBooks = 5;
+    }
 }
