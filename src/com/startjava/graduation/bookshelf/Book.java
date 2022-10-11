@@ -21,4 +21,7 @@ public class Book {
     public String toString() {
         return author + ", \"" + title + "\", " + publishYear;
     }
+    public int bookLength() {
+        return toString().length();
+    }
 }

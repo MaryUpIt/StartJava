@@ -16,11 +16,11 @@ public class BookShelfTest {
 
     private static void showAllBooks(BookShelf bookShelf) {
         System.out.println("-".repeat(70));
-        if (bookShelf.isEmpty()) {
+        if (bookShelf.getCountBooks() == 0) {
             System.out.println("На данный момент полка пуста, положите хотя бы одну книгу.");
         } else {
             Book[] books = bookShelf.getBooks();
-            int lineLength = bookShelf.getLineLength();
+            int lineLength = bookShelf.getMaxLineLength();
             System.out.println("|" + "-".repeat(lineLength) + "|");
             for (Book book : books) {
                 if (book != null) {
@@ -35,7 +35,7 @@ public class BookShelfTest {
         System.out.println("_".repeat(70));
     }
 
-    static private String analyzeCommand(BookShelf bookShelf) {
+    private static String analyzeCommand(BookShelf bookShelf) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите команду: ");
         String command = scanner.nextLine();

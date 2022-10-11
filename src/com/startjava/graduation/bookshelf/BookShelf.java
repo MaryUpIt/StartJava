@@ -6,9 +6,9 @@ public class BookShelf {
     private int countBooks;
     private final static int VALUE_BOOK_SHELF = 10;
     private Book[] books;
-    private int lineLength;
+    private int maxLineLength;
 
-    public BookShelf(){
+    public BookShelf() {
         this.books = new Book[VALUE_BOOK_SHELF];
     }
 
@@ -24,9 +24,8 @@ public class BookShelf {
         int index = findIndexBook(title);
         if (index != -1) {
             return books[index];
-        } else {
-            System.out.println("Такой книги на полке нет");
         }
+        System.out.println("Такой книги на полке нет");
         return null;
     }
 
@@ -42,8 +41,8 @@ public class BookShelf {
     }
 
     private int findIndexBook(String title) {
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] != null && books[i].getTitle().equals(title)) {
+        for (int i = 0; i < countBooks; i++) {
+            if (books[i].getTitle().equals(title)) {
                 return i;
             }
         }
@@ -67,28 +66,16 @@ public class BookShelf {
         return Arrays.copyOf(books, books.length);
     }
 
-    public int getLineLength() {
-        for (Book book : books) {
-            if (book != null) {
-                int bookLength = book.toString().length();
-                if (bookLength > lineLength) {
-                    lineLength = bookLength;
-                }
+    public int getMaxLineLength() {
+        for (int i = 0; i < countBooks; i++) {
+            if (books[i].bookLength() > maxLineLength) {
+                maxLineLength = books[i].bookLength();
             }
         }
-        return lineLength;
+        return maxLineLength;
     }
 
-    public boolean isEmpty() {
-        for (Book book : books) {
-            if (book != null) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-        public void test() {
+    public void test() {
         books[0] = new Book("Вуди Аллен", "Кстати ни о чем", "2020");
         books[1] = new Book("Кип Торн", "Черные дыры и складки времени", "1994");
         books[2] = new Book("Дэвид Дойч", "Начало бесконечности", "2011");
