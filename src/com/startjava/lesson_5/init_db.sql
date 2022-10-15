@@ -2,7 +2,7 @@
 INSERT INTO jagers (modelName, mark, height, weight, status, origin, launch, kaijuKill)
 VALUES
     ('Cherno Alpha',    '1', '85.0', '6.912', 'destroyed', 'RUS', '2015-05-09', '6'),
-    ('Striker Eurika',  '5', '40.0', '1.543', 'destroyed', 'AUS', '2019-11-02', '12'), 
+    ('Striker Eurika',  '5', '40.0', '1.543', 'destroyed', 'AUS', '2019-11-02', '12'),
     ('Crimson Typhoon', '4', '76.0', '1.722', 'destroyed', 'CHN', '2018-08-22', '8'),
     ('Bracer Phoenix',  '5', '71.0', '2.128', 'active',    'CHN', '2025-11-01', '1'),
     ('Gypsy Avenger',   '6', '81.6', '2.004', 'active',    'USA', '2034-01-12 ', '1'),

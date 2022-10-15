@@ -21,4 +21,3 @@
  SELECT * FROM jagers;
  --удалите уничтоженных роботов
  DELETE FROM jagers WHERE status = 'destroyed';
- SELECT * FROM jagers;

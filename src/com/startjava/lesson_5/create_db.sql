@@ -1,4 +1,4 @@
-DROP TABLE jagers;
+--DROP TABLE jagers;
 --создание таблицы
 CREATE TABLE jagers (
     ID SERIAL PRIMARY KEY,
